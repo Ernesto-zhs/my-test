@@ -10,5 +10,9 @@ public class PoissonInverse {
         PoissonDistribution poisson = new PoissonDistribution(lambda);
         double x = poisson.inverseCumulativeProbability(p);
         System.out.println("The Poisson inverse function of p=" + p + " with lambda=" + lambda + " is " + x);
+
+        double v = poisson.cumulativeProbability(445);
+        System.out.println(v);
+
     }
 }
