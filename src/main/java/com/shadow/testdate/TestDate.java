@@ -23,6 +23,9 @@ public class TestDate {
             }
         }
         instance.set(Calendar.DATE, date);
+        instance.set(Calendar.HOUR_OF_DAY,23);
+        instance.set(Calendar.MINUTE,59);
+        instance.set(Calendar.SECOND,59);
         return instance;
     }
 
@@ -39,6 +42,9 @@ public class TestDate {
             instance.add(Calendar.MONTH, 1);
         }
         instance.set(Calendar.DATE, fixedDate);
+        instance.set(Calendar.HOUR_OF_DAY,23);
+        instance.set(Calendar.MINUTE,59);
+        instance.set(Calendar.SECOND,59);
         return instance;
     }
 
