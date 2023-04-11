@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class MyTestApplication {
 
     public static void main(String[] args) {
+        System.out.println("dnsjkdnaskjdnajksdnaskj");
         SpringApplication.run(MyTestApplication.class, args);
     }
 
