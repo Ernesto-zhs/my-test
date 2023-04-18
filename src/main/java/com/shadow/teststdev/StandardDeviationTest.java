@@ -7,7 +7,7 @@ import java.util.Random;
 /**
  * 样本标准差
  */
-public class StdevTest {
+public class StandardDeviationTest {
 
     public static void main(String[] args) {
         StandardDeviation standardDeviation = new StandardDeviation();
