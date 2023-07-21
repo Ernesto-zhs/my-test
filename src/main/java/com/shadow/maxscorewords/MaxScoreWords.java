@@ -51,7 +51,7 @@ public class MaxScoreWords {
         Map<Character, Integer> letterScoreMap = new HashMap<>(scoreMap);
         for (String s : element) {
             char[] charArray = s.toCharArray();
-            boolean flag = checkFlag(letterCountMap, letterScoreMap, charArray);
+            boolean flag = checkFlag(letterCountMap, charArray);
             if (flag) {
                 for (char c : charArray) {
                     sum += letterScoreMap.get(c);
@@ -68,10 +68,11 @@ public class MaxScoreWords {
      * @param letterScoreMap 字母分数
      * @param charArray      字母数组
      */
-    private static boolean checkFlag(Map<Character, Integer> letterCountMap, Map<Character, Integer> letterScoreMap, char[] charArray) {
+    private static boolean checkFlag(Map<Character, Integer> letterCountMap, char[] charArray) {
         boolean flag = true;
         for (char c : charArray) {
-            if (letterCountMap.compute(c, (k, v) -> Objects.isNull(v) ? 0 : v - 1) < 0 || Objects.isNull(letterScoreMap.get(c))) {
+            Integer count = letterCountMap.computeIfPresent(c, (k, v) -> v - 1 > 0 ? v - 1 : letterCountMap.remove(c));
+            if (Objects.isNull(count)) {
                 flag = false;
             }
         }
