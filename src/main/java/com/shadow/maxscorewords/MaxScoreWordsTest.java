@@ -6,9 +6,9 @@ import java.util.List;
 public class MaxScoreWordsTest {
 
     public static void main(String[] args) {
-        String[] words = {"dog", "cat", "dad", "good"};
-        char[] letters = {'a', 'a', 'c', 'd', 'd', 'd', 'g', 'o', 'o'};
-        int[] scores = {1, 0, 9, 5, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        String[] words = {"e","bac","baeba","eb","bbbbd","cad","c","c"};
+        char[] letters = {'a','a','a','a','a','a','a','b','b','b','b','b','b','c','c','c','c','c','c','d','d','d','d','d','d','d','e','e','e','e'};
+        int[] scores = {8,4,6,8,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
         MaxScoreWords maxScoreWords = new MaxScoreWords();
         int i = maxScoreWords.maxScoreWords(words, letters, scores);
         System.out.println(i);

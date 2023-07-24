@@ -1,6 +1,8 @@
 package com.shadow.maxscorewords;
 
 import java.util.*;
+import java.util.function.BiFunction;
+import java.util.function.Function;
 
 public class MaxScoreWords {
 
@@ -71,7 +73,8 @@ public class MaxScoreWords {
     private static boolean checkFlag(Map<Character, Integer> letterCountMap, char[] charArray) {
         boolean flag = true;
         for (char c : charArray) {
-            Integer count = letterCountMap.computeIfPresent(c, (k, v) -> v - 1 > 0 ? v - 1 : letterCountMap.remove(c));
+            BiFunction<Character, Integer, Integer> function = (k, v) -> v - 1 > 0 ? v - 1 : letterCountMap.remove(c);
+            Integer count = letterCountMap.computeIfPresent(c, function);
             if (Objects.isNull(count)) {
                 flag = false;
             }
@@ -87,7 +90,8 @@ public class MaxScoreWords {
     private static Map<Character, Integer> getLetterCountMap(char[] letters) {
         Map<Character, Integer> letterCountMap = new HashMap<>();
         for (char letter : letters) {
-            letterCountMap.compute(letter, (k, v) -> Objects.isNull(v) ? 1 : v + 1);
+            BiFunction<Character, Integer, Integer> function = (k, v) -> Objects.isNull(v) ? 1 : v + 1;
+            letterCountMap.compute(letter, function);
         }
         return letterCountMap;
     }
@@ -101,7 +105,8 @@ public class MaxScoreWords {
     private static Map<Character, Integer> getLetterScoreMap(char[] letters, int[] scores) {
         Map<Character, Integer> map = new HashMap<>();
         for (char letter : letters) {
-            map.computeIfAbsent(letter, k -> scores[letter - 97]);
+            Function<Character, Integer> function = k -> scores[letter - 97];
+            map.computeIfAbsent(letter, function);
         }
         return map;
     }

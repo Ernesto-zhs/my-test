@@ -6,7 +6,7 @@ package com.shadow.longestvalidparentheses;
  * @author austin
  * @since 2023-07-21
  */
-class Solution {
+class LongestValidParentheses {
 
     public static int longestValidParentheses(String s) {
         if (!s.contains("()")) {
