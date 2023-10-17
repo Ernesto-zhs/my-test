@@ -1,4 +1,4 @@
-package com.shadow.addtwonumbers;
+package com.shadow.twonumbersum;
 
 public class AddTwoNumbersTest {
 

@@ -1,4 +1,4 @@
-package com.shadow.addtwonumbers;
+package com.shadow.twonumbersum;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +26,7 @@ public class AddTwoNumbers {
                 l2 = l2.next;
             }
             int v = v1 + v2 + (nextAdd ? 1 : 0);
-            list.add(v >= 10 ? v - 10 : v);
+            list.add(v >= 10 ? v % 10 : v);
             nextAdd = v >= 10;
         }
         if (nextAdd) {
