@@ -55,7 +55,6 @@ public class QuickSort {
         int tmp = arr[i];
         arr[i] = arr[r];
         arr[r] = tmp;
-//        System.out.println("i=" + i);
         return i;
     }
 
